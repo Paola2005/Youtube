@@ -17,7 +17,9 @@
         "width": 176
       }
     ],
+    
     "badges": [],
+    
     "banner": {
       "desktop": [
         {
@@ -127,5 +129,83 @@
       "views": 34998
     },
     "title": "CreativeCode",
-    "username": "@creativecode787"
+    "username": "@creativecode787",
+
+
+    "ima":"images/menu.png",
+    "logo":"images/youtube_logo_icon_167938.svg",
+    "logserch":"images/search.png",
+    "logmic":"images/seo-social-web-network-internet_09_icon-icons.com_61507.svg",   
+    "log1":"images/Jack.png",
+
+    "logos2":[
+      {"log2":"images/upload.png"},
+      {"log2":"images/more.png"},
+      {"log2":"images/notification.png"}
+
+    ],
+
+  "textoslate1":[
+      {
+        "cosa":"Home",
+         "imagenes1":"./images/home.png"  
+      },
+      {
+        "cosa":"Explore",
+        "imagenes1":"./images/explore.png"
+      },
+      {
+        "cosa":"Subscriprion",
+        "imagenes1":"./images/subscriprion.png"
+      },
+      {
+        "cosa":"Library",
+        "imagenes1":"./images/library.png"
+      },
+      {
+        "cosa":"History",
+        "imagenes1":"./images/history.png"
+      },
+      {
+        "cosa":"Playlist",
+        "imagenes1":"./images/playlist.png"
+      },
+      {
+        "cosa":"Messages",
+        "imagenes1":"./images/messages.png"
+      },
+      {
+        "cosa":"Show More",
+        "imagenes1":"./images/show-more.png"
+      }
+    ],
+  
+    "textoslate2":[
+      {
+        "cosa2":"CreativeCode",
+        "imagenes2":"./images/unnamed.jpg"
+      },
+      {
+        "cosa2":"Campuslands Bucaramanga",
+        "imagenes2":"./images/channels4_profile.jpg"
+      },
+      {
+        "cosa2":"Soy Dalton",
+        "imagenes2":"./images/channels4_profile58.jpg"
+      },
+      {
+        "cosa2":"midulive",
+        "imagenes2":"./images/unnamed5.jpg"
+      },
+      {
+        "cosa2":"ManzDev",
+        "imagenes2":"./images/unnamed3.jpg"
+      },
+      {
+        "cosa2":"Pedro Felipe Gomez Bonilla",
+        "imagenes2":"./images/unnamedpe.jpg"
+      }
+     
+    ]
+
   }
