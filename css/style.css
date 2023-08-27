@@ -42,7 +42,7 @@ nav{
 
 }
 .nose .logo{
-    width: 130px;
+    width: 104px;
 
 }
 .nose2 .micro{
@@ -75,7 +75,7 @@ nav{
     position: fixed;
     top: 0;
     padding-left: 2%;
-    padding-top: 80px;
+    padding-top: 102px;
 }
 .links a img{
     width: 20px;
@@ -219,12 +219,11 @@ nav{
 
 /*play video*/
 
-.playcontainer{
-    padding-left: 2%;
-}
+
 .row{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
 }
 .play-video{
