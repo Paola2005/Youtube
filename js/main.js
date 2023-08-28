@@ -21,7 +21,7 @@ const chanel = await fetch("chanel.json");
             <!--nav-right-->
             <div class="nose3 primero">
             ${canal.logos2.map((value) => /*html */`
-                <img src="${value.log2}" ><br>`)}
+                <img src="${value.log2}" ><br>`).join(" ")}
                 <img src="${canal.log1}" class="usuario">
             </div>
 
@@ -70,14 +70,15 @@ menuIcon.addEventListener('click', function() {
             ${videos.contents.map((value) => 
                 /*HTML*/`
                 <div class="videos">
-                    <img href="" src="${value.video.thumbnails[3].url}" class="imagenprin">
+                    <a href="playvideo.html"><img src="${value.video.thumbnails[3].url}" class="imagenprin"></a>
                         <div class="primero">
                             <div class=vid>
                                 <img src="${canal.avatar[1].url}">
                             </div>
 
                             <div class="infovideo">
-                                <a href="">${value.video.title}</a>
+                                <a href="playvideo.html">${value.video.title}</a>
+                                <p>${canal.title}</p>
                                 <p>${value.video.stats.views} views ·${value.video.publishedTimeText}</p>
                             </div>
                         </div>

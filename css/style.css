@@ -120,7 +120,7 @@ nav{
   .segundo {
 
     background:#fff;
-    width: 15%;
+ 
     height: 100vh;
     position: fixed;
     top: 0;
@@ -129,7 +129,7 @@ nav{
 
     left: -300px; /* Inicialmente oculto */
   
-    transition: left 0.3s ease;
+    transition: left 0.2s ease;
     
   }
 
@@ -141,7 +141,7 @@ nav{
     padding-bottom: 20px;
 
 
-    transition:  width 0.3s ease;
+    transition:  0.1s all ease;
   }
 
   .cotainer.with-sidebar {
@@ -203,6 +203,7 @@ nav{
     font-size: 15px;
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 @media (max-width: 900px) {
