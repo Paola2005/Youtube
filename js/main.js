@@ -1,13 +1,3 @@
-/*var menuicon=document.querySelector(".iconom");
-var sidebar=document.querySelector(".segundo");
-var container=document.querySelector(".cotainer");
-
-menuicon.onclick=function(){
-    sidebar.classList.toggle("small-sidebar");
-    container.classList.toggle("large-container");}*/
-
-
-
 let todo = async() =>{
 const chanel = await fetch("chanel.json");
     let video = await fetch("videos.json");
@@ -70,16 +60,12 @@ menuIcon.addEventListener('click', function() {
             </div>
 
     `)
-    
-
     let banner = document.querySelector(".cotainer")
     console.log(videos.contents[0].video.movingThumbnails[0].url);
         banner.insertAdjacentHTML("beforeend", /*HTML*/`
         <div class="banner">
             <img src="${canal.banner.desktop[3].url}" class="bannerlar">
         </div>
-
-
         <div class="listacontenedor">
             ${videos.contents.map((value) => 
                 /*HTML*/`
