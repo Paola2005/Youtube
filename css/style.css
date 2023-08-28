@@ -68,15 +68,7 @@ nav{
 
 /*segudo*/
 
-.segundo{
-    background:#fff;
-    width: 15%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    padding-left: 2%;
-    padding-top: 102px;
-}
+
 .links a img{
     width: 20px;
     margin-right: 20px;
@@ -88,9 +80,7 @@ nav{
     width:fit-content ;
     flex-wrap: wrap;
 }
-.links a:first-child{
-    color: #ed3833;
-}
+
 .segundo hr{
     border:0;
     height: 1px;
@@ -114,31 +104,51 @@ nav{
     border-radius: 50%;
     margin-right: 20px;
 }
-.small-sidebar{
-    width: 5%;
+#menuIcon {
 
-}
-.small-sidebar a p{
-    display: none;
-}
-.small-sidebar h3{
-    display: none;
-}
-.small-sidebar hr{
-    width: 50%;
-    margin-bottom: 25px;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 1000;
+  }
 
+  /* Tus estilos CSS aquí */
+  .segundo {
 
-}
-/*tercero*/
+    background:#fff;
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    padding-left: 2%;
+    padding-top: 102px;
 
-.cotainer{
+    left: -300px; /* Inicialmente oculto */
+  
+    transition: left 0.3s ease;
+    
+  }
+
+  .cotainer {
     background: #f9f9f9;
-    padding-left: 17% ;
+    padding-left: 2%;
     padding-right: 2%;
     padding-top: 20px;
     padding-bottom: 20px;
-}
+
+
+    transition:  width 0.3s ease;
+  }
+
+  .cotainer.with-sidebar {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+
 
 .large-container{
     padding-left: 7% ;

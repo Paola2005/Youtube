@@ -17,8 +17,8 @@ const chanel = await fetch("chanel.json");
     let nav=document.querySelector(".primero")
     nav.insertAdjacentHTML("beforeend",/*HTML*/`
     <div class="nose primero">
-            <img src="${canal.ima}" class="iconom">
-            <img src="${canal.logo}" class="logo">
+    <button id="menuIcon"><img src="${canal.ima}" class="iconom"></button>
+    <img src="${canal.logo}" class="logo">
         </div>
             <!--nav-middle-->
             <div class="nose2 primero">
@@ -36,11 +36,27 @@ const chanel = await fetch("chanel.json");
             </div>
 
     `)
+    const menuIcon = document.getElementById('menuIcon');
+const lado = document.querySelector('.segundo');
+const container = document.querySelector('.cotainer');
+let ladoVisible = false;
+
+menuIcon.addEventListener('click', function() {
+  if (ladoVisible) {
+    lado.style.left = "-300px";
+    container.classList.remove('with-sidebar');
+  } else {
+    lado.style.left = "0px";
+    container.classList.add('with-sidebar');
+  }
+  ladoVisible = !ladoVisible;
+});
+
     let lateral=document.querySelector(".segundo")
     lateral.insertAdjacentHTML("beforeend",/*HTML*/`
     ${canal.textoslate1.map((value) => /*html */`
     <div class="links">
-            <a href=""><img src="${value.imagenes1}"><p>${value.cosa}</p></a>
+    <a ><img  src="${value.imagenes1}"><p>${value.cosa}</p></a>
             </div>`).join("")}
             <hr>
             <div class="suscriptores">
@@ -54,7 +70,7 @@ const chanel = await fetch("chanel.json");
             </div>
 
     `)
-
+    
 
     let banner = document.querySelector(".cotainer")
     console.log(videos.contents[0].video.movingThumbnails[0].url);
@@ -68,7 +84,7 @@ const chanel = await fetch("chanel.json");
             ${videos.contents.map((value) => 
                 /*HTML*/`
                 <div class="videos">
-                    <img src="${value.video.thumbnails[3].url}" class="imagenprin">
+                    <img href="" src="${value.video.thumbnails[3].url}" class="imagenprin">
                         <div class="primero">
                             <div class=vid>
                                 <img src="${canal.avatar[1].url}">
