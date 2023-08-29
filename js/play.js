@@ -82,11 +82,10 @@ function changingVideo(ids){
     
     
  
+    let context = async() =>{
+        const peticion = await fetch("video1.json");
+            let response = await peticion.json();
 
-let context = 'video1';
-(async(url)=>{ 
-let peticion = await fetch (`./JSON/${url}.json`) 
-let response = await peticion.json()
 console.log(response);
 
 let context = document.querySelector('#top-info')
@@ -118,4 +117,4 @@ context.insertAdjacentHTML('afterend', /*HTML*/`
         <hr>
     </div>
 `)
-})(context);
+};context();

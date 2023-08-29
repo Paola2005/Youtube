@@ -97,7 +97,6 @@ const path= "videos";
         console.log(response);
 
 
-        // INSERTAR TARJETAS DE VIDEO AL INDEX.HTML
         let myVideos = document.querySelector('#contenedorvids');
 
         myVideos.insertAdjacentHTML("beforeend", `
@@ -115,16 +114,14 @@ const path= "videos";
         `)
 
 
-        // FUNCION DE QUE ESCUCHARÁ TODAS LAS TARJETAS DE VIDEOS CREADOS AL HACERLE CLICK 
+         
         const videoElements = document.querySelectorAll('.videos');
 
-        // Agrega un manejador de eventos a cada tarjeta video
         videoElements.forEach(video => {
             video.addEventListener('click', () => {
                 let videoId = video.getAttribute('videoid');
 
-                 //GUARDO EL VALOR DEL ATRIBUTO ANTERIORMENTE CREADO
-                 // PARA SABER EL ID DEL VIDEO AL QUE SE LE DIÓ CLICK
+           
                 localStorage.setItem('ID', videoId)
                 });
         });
