@@ -8,6 +8,14 @@
 a{
     text-decoration: none;
     color:#5a5a5a;
+    
+}
+.cotainer a{
+    font-weight: bold;
+    color: #000;
+}
+.cotainer p{
+    color: #5a5a5a;
 }
 img{
     cursor: pointer;
@@ -68,7 +76,10 @@ nav{
 
 /*segudo*/
 
-
+.p{
+    text-decoration: none;
+   color:#5a5a5a ; 
+}
 .links a img{
     width: 20px;
     margin-right: 20px;

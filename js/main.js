@@ -106,6 +106,7 @@ const path= "videos";
                     <div class="primero">
                         <div class="vid">
                             <a href="playvideo.html">${value.video.title}</a>
+                            <p>CreativeCode</p>
                             <p>${value.video.stats.views} Views &bull; ${value.video.publishedTimeText}</p>
                         </div>
                     </div>

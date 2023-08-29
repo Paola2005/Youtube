@@ -1,5 +1,6 @@
 
 
+
 let todo = async() =>{
     const chanel = await fetch("chanel.json");
         let video = await fetch("videos.json");
@@ -48,33 +49,33 @@ let todo = async() =>{
     
         `)
 
-        let viderec=document.querySelector(".derecha")
-        viderec.insertAdjacentHTML("beforeend",/*HTML*/`
-        ${videos.contents.map((value)=> /*html */`
-        <div class="videolista" videoid='${value.video.videoId}'>
-            <a href="playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
-                <div class="contextvideo">
-                    <a href="./playvideo.html">${value.video.title}</a>
-                    <p>CreativeCode</p>
-                    <p>${value.video.stats.views} Views &bull; ${value.video.publishedTimeText}</p>
-                </div>
-        </div>
+        // let viderec=document.querySelector(".derecha")
+        // viderec.insertAdjacentHTML("beforeend",/*HTML*/`
+        // ${videos.contents.map((value)=> /*html */`
+        // <div class="videolista" videoid='${value.video.videoId}'>
+        //     <a href="playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
+        //         <div class="contextvideo">
+        //             <a href="./playvideo.html">${value.video.title}</a>
+        //             <p>CreativeCode</p>
+        //             <p>${value.video.stats.views} Views &bull; ${value.video.publishedTimeText}</p>
+        //         </div>
+        // </div>
     
-        `).join("")}
-        `)}
-        const videoElements = document.querySelectorAll('.videolista');
-        videoElements.forEach(video => {
-            video.addEventListener('click', () => {
-                let videoId = video.getAttribute('videoid');
-                localStorage.setItem('ID', videoId)
-            });
+        // `).join("")}
+        // `)}
+        // const videoElements = document.querySelectorAll('.videolista');
+        // videoElements.forEach(video => {
+        //     video.addEventListener('click', () => {
+        //         let videoId = video.getAttribute('videoid');
+        //         localStorage.setItem('ID', videoId)
+        //     });
 
 
 
 
             
             
-    });
+    };
 todo()
 
 function changingVideo(ids){
@@ -84,21 +85,33 @@ function changingVideo(ids){
     `)
 }
     
-    let storageElement = localStorage.getItem('ID')
-    console.log(storageElement);
-    changingVideo(storageElement)
-    
-    
- 
-    let context = async() =>{
-        const peticion = await fetch("video1.json");
-            let response = await peticion.json();
 
+
+let storageElement = localStorage.getItem('ID')
+console.log(storageElement);
+changingVideo(storageElement)
+
+
+const url = `https://youtube138.p.rapidapi.com/video/details/?id=${storageElement}&hl=en&gl=US`;
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b595005c91mshe1eb93b5d95b243p1ea044jsn23aae979be4a',
+		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+	}
+};
+
+// let infoVid = 'videoInfo';
+let info = async() =>{
+let peticion = await fetch (url,options) 
+let response = await peticion.json()
 console.log(response);
 
-let context = document.querySelector('#top-info')
+let infoVid = document.querySelector('#top-info')
 
-context.insertAdjacentHTML('afterend', /*HTML*/`
+if (response.description == null){
+    infoVid.insertAdjacentHTML('afterend', 
+`
     <h3>${response.title}</h3>
 
     <div class="informacionvideo">
@@ -119,10 +132,91 @@ context.insertAdjacentHTML('afterend', /*HTML*/`
         </div>
         <button type="button">Subscribe</button>
     </div>
-    
-    <div class="descripvideos" id="descripvideos">
-        <p>${response.description}</p>
-        <hr>
+
+    <div class="vid-description" id="vid-description">
+    <p>The author doesn't put a description</p>
+    <hr>
     </div>
 `)
-};context();
+}
+else{
+    infoVid.insertAdjacentHTML('afterend', 
+    `
+        <h3>${response.title}</h3>
+
+        <div class="informacionvideo">
+            <p>${response.stats.views} Views &bull; Publish Date: ${response.publishedDate}</p>
+            <div>
+                <a href=""><img src="./images/like.png">${response.stats.likes}</a>
+                <a href=""><img src="./images/dislike.png"></a>
+                <a href=""><img src="./images/share.png">Share</a>
+                <a href=""><img src="./images/save.png">Save</a>
+            </div>
+        </div>
+        <hr>
+        <div class="publico">
+            <img src="${response.author.avatar[2].url}">
+            <div>
+                <p>${response.author.title}</p>
+                <span>${response.author.stats.subscribersText}</span>
+            </div>
+            <button type="button">Subscribe</button>
+        </div>
+        
+        <div class="descripvideos" id="descripvideos">
+            <p>${response.description}</p>
+            <hr>
+        </div>
+    `)
+}
+}
+info(url,options);
+
+
+
+const urln = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
+const optionse = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b595005c91mshe1eb93b5d95b243p1ea044jsn23aae979be4a',
+		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+	}
+};
+
+
+
+         (async(parameters,videos) => {
+            let petic = await fetch (parameters,videos) 
+            let repon = await petic.json()
+            console.log(repon);
+   
+            // INSERTAR TARJETAS DE VIDEO AL PLAY-VIDEO
+            let rightSide = document.querySelector('.derecha')
+            rightSide.insertAdjacentHTML('beforeend', `
+                ${repon.contents.map((value)=>`
+                <div class="videolista" video-id='${value.video.videoId}'>
+                        <a href="./playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
+                        <div class="contextvideo">
+                            <a href="./playvideo.html">${value.video.title}</a>
+                            <p>CreativeCode</p>
+                            <p>${value.video.stats.views} Views &bull; ${value.video.publishedTimeText}</p>
+                        </div>
+                </div>
+                `).join("")}
+            `)
+     // FUNCION DE QUE ESCUCHARÁ TODAS LAS TARJETAS DE VIDEOS CREADOS AL HACERLE CLICK 
+            const videoElements = document.querySelectorAll('.videolista');
+            // Agrega un manejador de eventos a cada tarjeta video
+            videoElements.forEach(video => {
+                video.addEventListener('click', () => {
+                    let videoId = video.getAttribute('videoid');
+                     //GUARDO EL VALOR DEL ATRIBUTO ANTERIORMENTE CREADO
+                     // PARA SABER EL ID DEL VIDEO AL QUE SE LE DIÓ CLICK
+                    localStorage.setItem('ID', videoId)
+                    });
+            });
+        })(urln,optionse)
+
+
+        
+        
