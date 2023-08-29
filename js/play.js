@@ -7,7 +7,6 @@ let todo = async() =>{
         let nav=document.querySelector(".primero")
         nav.insertAdjacentHTML("beforeend",/*HTML*/`
         <div class="nose primero">
-        
         <img src="${canal.logo}" class="logo">
             </div>
                 <!--nav-middle-->
@@ -45,5 +44,78 @@ let todo = async() =>{
             
                 </div>
     
+        `)
+
+        let viderec=document.querySelector(".derecha")
+        viderec.insertAdjacentHTML("beforeend",/*HTML*/`
+        ${videos.contents.map((value)=> /*html */`
+        <div class="videolista" videoid='${value.video.videoId}'>
+            <a href="./playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
+                <div class="contextvideo">
+                    <a href="./playvideo.html">${value.video.title}</a>
+                    <p>CreativeCode</p>
+                    <p>${value.video.stats.views} Views &bull; ${value.video.publishedTimeText}</p>
+                </div>
+        </div>
+    
+        `).join("")}
         `)}
-        todo()
+        const videoElements = document.querySelectorAll('.videolista');
+        videoElements.forEach(video => {
+            video.addEventListener('click', () => {
+                let videoId = video.getAttribute('videoid');
+                localStorage.setItem('ID', videoId)
+            });
+    });
+todo()
+
+function changingVideo(ids){
+    let iframe = document.querySelector('.play-video');
+    iframe.insertAdjacentHTML('afterbegin', /*HTML*/`
+    <iframe width="100%" height="615" src="https://www.youtube.com/embed/${ids}?si=czx-JXcyfxDxe0lv&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    `)
+    }
+    
+    let storageElement = localStorage.getItem('ID')
+    console.log(storageElement);
+    changingVideo(storageElement)
+    
+    
+ 
+
+let context = 'video1';
+(async(url)=>{ 
+let peticion = await fetch (`./JSON/${url}.json`) 
+let response = await peticion.json()
+console.log(response);
+
+let context = document.querySelector('#top-info')
+
+context.insertAdjacentHTML('afterend', /*HTML*/`
+    <h3>${response.title}</h3>
+
+    <div class="informacionvideo">
+        <p>${response.stats.views} Views &bull; Publish Date: ${response.publishedDate}</p>
+        <div>
+            <a href=""><img src="./IMG/like.png">${response.stats.likes}</a>
+            <a href=""><img src="./IMG/dislike.png"></a>
+            <a href=""><img src="./IMG/share.png">Share</a>
+            <a href=""><img src="./IMG/save.png">Save</a>
+        </div>
+    </div>
+    <hr>
+    <div class="publico">
+        <img src="${response.author.avatar[2].url}">
+        <div>
+            <p>${response.author.title}</p>
+            <span>${response.author.stats.subscribersText}</span>
+        </div>
+        <button type="button">Subscribe</button>
+    </div>
+    
+    <div class="descripvideos" id="descripvideos">
+        <p>${response.description}</p>
+        <hr>
+    </div>
+`)
+})(context);

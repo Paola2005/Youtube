@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play video</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/play.js" defer></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -20,283 +20,80 @@
         
     </div>
 
-    <!---->
-    <div class="container">
-        <div class="videoplayer">
-            <div class="video">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/izvodnnCvt0?si=DkBPky2dcSEsCH7u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="cotainer playcontainer">
+        <div class="row">
+            <!---->
+            <div class="play-video" >
+               <!-- <video controls autoplay>
+                    <source src="images/video.mp4" type="video/mp4">
+                </video>
+                <div class="tags">
+                    <a href="">#coding</a><a href="">#HTML</a><a href="">#CSS</a><a href="">#JavaScript</a>
                 </div>
-                <div class="video-title border-bottom">
-                    <h1>Optimistic Nihilism</h1>
+                <h3>
+                   Ganas de morir 
+                </h3>
+                
+                <div class="informacionvideo">
+                    <p>fjnsfbanofnsdknfpsn</p>
                     <div>
-                        <div class="views">
-                            <span>8,324,855 views
-                                </span>
-                        </div>
+                        <a href=""><img src="images/like.png" >125</a>
+                        <a href=""><img src="images/dislike.png" >5</a>
+                        <a href=""><img src="images/share.png" >125</a>
+                        <a href=""><img src="images/save.png" >125</a>
+                    </div>
 
-                        <div class="like-share">
-                            <div class="like">
-                                <a href="#">
-                                    <svg>
-                                        <path
-                                            d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z">
-                                        </path>
-                                    </svg>
-                                    <span>244K</span>
-                                </a>
+                </div>
+                <hr>
+                <div class="publico">
+                    <img src="images/Jack.png" alt="">
+                    <div>
+                        <p>
+                            Quiero mimir
+                            <span>0 suscriptores</span>
+                        </p>
+                    </div>
+                    <button type="button">subscribe</button>
+                </div>
+               
+                <div class="descripvideos" id="descripvideos">
+                    <p> asjnasifaowuihnawuirbn</p>
+                    <p> asjnasifaowuihnawuirbndfnsdñonsofndsuioninfdjkgn</p>
+                    <hr>-->
 
-                                <a href="#">
-                                    <svg>
-                                        <path
-                                            d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z">
-                                        </path>
-                                    </svg>
-                                    <span>2K</span>
-                                </a>
+
+                    <div class="añadircomentarios">
+                       <!-- <h4>2 comments</h4>
+                        <img src="images/Jack.png" alt="">
+                        <input type="text" placeholder="write comments..">
+                    </div>
+                    <div class="comentarioviejo">
+                        <img src="images/Jack.png" alt="">
+                        <div>
+                            <h3>Juan David <span>2 days ago</span></h3>
+                            <p>esta feo el video</p>
+                            <div class="acciones">
+                                <img src="images/like.png" alt="">
+                                <span>21</span>
+                                <img src="images/dislike.png" alt="">
+                                <span>2</span>
+                                <span>Reply</span>
+                                <a href="">All replies</a>
                             </div>
-                            <div id="share">
-                                <a href="#">
-                                    <svg>
-                                        <path d="M14 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z">
-                                        </path>
-                                    </svg>
-                                    <span>SHARE</span>
-                                </a>
-                                <a href="#">
-                                    <svg>
-                                        <path
-                                            d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z">
-                                        </path>
-                                    </svg>
-                                    <span>SAVE</span>
-                                </a>
-                                <a id="reprot-circles" href="#">
-                                    <svg>
-                                        <circle cx="5" cy="12" r="2" class="style-scope yt-icon"></circle>
-                                        <circle cx="12" cy="12" r="2" class="style-scope yt-icon"></circle>
-                                        <circle cx="19" cy="12" r="2" class="style-scope yt-icon"></circle>
-                                    </svg>
-
-                                </a>
-                                <a id="report" href="#">
-                                    <svg>
-                                        <path
-                                            d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z">
-                                        </path>
-                                    </svg>
-                                    <span>REPORT</span>
-                                </a>
-                            </div>
-
-
-
-
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="video-info border-bottom">
-                <div class="owner">
-                    <div class="owner-icon">
-                        <a href="#">
-                            <img src="images/owner-icon.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="owner-name ">
-                        <h1>
-                            Kurzgesagt
-                        </h1>
-                        <p class="grey">Published on 26 Jul 2017</p>
-                    </div>
-                    <div class="subscribe"><a href="#"> SUBSCRIBE <span>8.9M</span></a></div>
-                </div>
-
-                <div class="description ">
-                    <p>The philosophy of Kurzgesagt.</p><br>
-                    <a href="#"> SHOW MORE</a>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="sidebar">
-            <div class="next">
-                <h3>Up next</h3>
-                <div>
-                    <h4 class="grey">AUTOPLAY</h4>
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span class="slider round"></span>
-                    </label>
+                    </div>-->
                 </div>
 
             </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi_webp/-O5kNPlUV7w/mqdefault.webp"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Beauty
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">4,900,544 views</p>
-                </div>
-            </div>
-            <div class="break border-bottom"></div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/ouAccsTzlGU/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSqciGlithDQkIic-dmdDgBrr5bQ"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Is Meat Bad for You?
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">266,330 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/jAhjPd4uNFY/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLD6kjE8CeEh7UTtawco5dvmyTXCVg"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Genetic Engineering
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">12,160,214 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/dGiQaabX3_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLCbVNtoD3kqiSRWuaAS5reQj_L-bg"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Human Origins
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">10,047,067 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/UjtOGPJ0URM/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLD-dTreRLxUggOPpxH73u51lZtVBA"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Great Filter
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">11,425,497 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/tlTKTTt47WE/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLC42NU-ilu1dAPgU2jkTVIUcbpY2g"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Is reality Real
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">9,482,151 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/n3Xv_g3g-mA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBkCFAjC0S5HMu5ftHnxwJN2szWzg"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Loneliness
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">8,401,231 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/QOCaacO8wus/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAOSdzxt83mWW2m4N4u8E0zni-22g"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>What is Life?
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">10,000,101 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/mZsaaturR6E/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLC7164GAhOTMAVH6-K6fThfxKABrA"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>Fusion power Explained
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">5,901,231 views</p>
-                </div>
-            </div>
-            <div class="thumbnail-container ">
-                <div class="thumbnail">
-                    <a href="#"> <img
-                            src="https://i.ytimg.com/vi/GoJsr4IwCm4/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAXevqoHe63HNjrQkLPhCsehIrKFA"
-                            alt=""> </a>
-                </div>
-                <div class="thumbnail-info  ">
-                    <span>End Aging?
-                    </span>
-                    <p class="grey">Kurzgesagt</p>
-                    <p class="grey">4,900,544 views</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div>
-            <div class="sort">
-                <h2>0 Comments</h2>
-                <a href="#">
-                    <svg>
-                        <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"></path>
-                    </svg>
-                </a>
-                <div>SORT BY</div>
-            </div>
-
-            <div class="comments">
-                <div>
-                    <a href="#">
-                        <img src="images/microverse.png" alt="">
-                    </a>
-                    <div class="add-comment">Add public comment</div>
-                </div>
-
-                <!-- <div>
-                    <a href="#">
-                        <img src="images/commentor.png" alt="">
-                    </a>
-                    <div class="comment "></div>
-                </div> -->
-
-
+            <!---->
+            <div class="derecha" id="videosderecha">
+                
             </div>
 
         </div>
+
     </div>
+
 
 
 

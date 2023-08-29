@@ -3,7 +3,7 @@ const chanel = await fetch("chanel.json");
     let video = await fetch("videos.json");
     let videos = await video.json();
     let canal = await chanel.json();
-
+    const creativeCodeURL = 'UC8fkwsjcI_MhralEX1g4OBw';
     let nav=document.querySelector(".primero")
     nav.insertAdjacentHTML("beforeend",/*HTML*/`
     <div class="nose primero">
@@ -69,7 +69,7 @@ menuIcon.addEventListener('click', function() {
         <div class="listacontenedor">
             ${videos.contents.map((value) => 
                 /*HTML*/`
-                <div class="videos">
+                <div class="videos" idvideo="21">
                     <a href="playvideo.html"><img src="${value.video.thumbnails[3].url}" class="imagenprin"></a>
                         <div class="primero">
                             <div class=vid>
@@ -89,3 +89,46 @@ menuIcon.addEventListener('click', function() {
     
 }
 todo()
+
+const path= "videos";
+(async(ids)=>{ 
+        let peticion = await fetch (`./JSON/${ids}.json`) 
+        let response = await peticion.json()
+        console.log(response);
+
+
+        // INSERTAR TARJETAS DE VIDEO AL INDEX.HTML
+        let myVideos = document.querySelector('#contenedorvids');
+
+        myVideos.insertAdjacentHTML("beforeend", `
+            ${response.contents.map((value)=>`
+                <div class="videos" videoid='${value.video.videoId}'>
+                    <a href="./playvideo.html"><img src="${value.video.thumbnails[3].url}" class="thumbnail"></a>
+                    <div class="primero">
+                        <div class="vid">
+                            <a href="./playvideo.html">${value.video.title}</a>
+                            <p>${value.video.stats.views} Views &bull; ${value.video.publishedTimeText}</p>
+                        </div>
+                    </div>
+                </div>
+                `).join("")}
+        `)
+
+
+        // FUNCION DE QUE ESCUCHARÁ TODAS LAS TARJETAS DE VIDEOS CREADOS AL HACERLE CLICK 
+        const videoElements = document.querySelectorAll('.videos');
+
+        // Agrega un manejador de eventos a cada tarjeta video
+        videoElements.forEach(video => {
+            video.addEventListener('click', () => {
+                let videoId = video.getAttribute('videoid');
+
+                 //GUARDO EL VALOR DEL ATRIBUTO ANTERIORMENTE CREADO
+                 // PARA SABER EL ID DEL VIDEO AL QUE SE LE DIÓ CLICK
+                localStorage.setItem('ID', videoId)
+                });
+        });
+})(path);
+
+
+document.querySelector('#chartSearch').addEventListener
