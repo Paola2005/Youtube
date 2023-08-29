@@ -1,3 +1,5 @@
+
+
 let todo = async() =>{
     const chanel = await fetch("chanel.json");
         let video = await fetch("videos.json");
@@ -7,7 +9,7 @@ let todo = async() =>{
         let nav=document.querySelector(".primero")
         nav.insertAdjacentHTML("beforeend",/*HTML*/`
         <div class="nose primero">
-        <img src="${canal.logo}" class="logo">
+        <a href="../index.html"><img src="${canal.logo}" class="logo"></a>
             </div>
                 <!--nav-middle-->
                 <div class="nose2 primero">
@@ -50,7 +52,7 @@ let todo = async() =>{
         viderec.insertAdjacentHTML("beforeend",/*HTML*/`
         ${videos.contents.map((value)=> /*html */`
         <div class="videolista" videoid='${value.video.videoId}'>
-            <a href="./playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
+            <a href="playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
                 <div class="contextvideo">
                     <a href="./playvideo.html">${value.video.title}</a>
                     <p>CreativeCode</p>
@@ -66,6 +68,12 @@ let todo = async() =>{
                 let videoId = video.getAttribute('videoid');
                 localStorage.setItem('ID', videoId)
             });
+
+
+
+
+            
+            
     });
 todo()
 
@@ -74,7 +82,7 @@ function changingVideo(ids){
     iframe.insertAdjacentHTML('afterbegin', /*HTML*/`
     <iframe width="100%" height="615" src="https://www.youtube.com/embed/${ids}?si=czx-JXcyfxDxe0lv&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     `)
-    }
+}
     
     let storageElement = localStorage.getItem('ID')
     console.log(storageElement);
@@ -96,10 +104,10 @@ context.insertAdjacentHTML('afterend', /*HTML*/`
     <div class="informacionvideo">
         <p>${response.stats.views} Views &bull; Publish Date: ${response.publishedDate}</p>
         <div>
-            <a href=""><img src="./IMG/like.png">${response.stats.likes}</a>
-            <a href=""><img src="./IMG/dislike.png"></a>
-            <a href=""><img src="./IMG/share.png">Share</a>
-            <a href=""><img src="./IMG/save.png">Save</a>
+            <a href=""><img src="./images/like.png">${response.stats.likes}</a>
+            <a href=""><img src="./images/dislike.png"></a>
+            <a href=""><img src="./images/share.png">Share</a>
+            <a href=""><img src="./images/save.png">Save</a>
         </div>
     </div>
     <hr>
