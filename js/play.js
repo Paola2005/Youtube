@@ -173,12 +173,12 @@ else{
 info(url,options);
 
 
-
+const token = 'b595005c91mshe1eb93b5d95b243p1ea044jsn23aae979be4a'
 const urln = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
 const optionse = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'b595005c91mshe1eb93b5d95b243p1ea044jsn23aae979be4a',
+		'X-RapidAPI-Key': `${token}`,
 		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
 	}
 };
