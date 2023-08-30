@@ -61,19 +61,19 @@ document.querySelector('#chartSearch').addEventListener("change", (e) => {
     }
 });
 
- const options = {
- 	method: 'GET',
- 	headers: {
- 		'X-RapidAPI-Key': '169994c251mshf415aae10d6eecap13af92jsn929e0f2fcf8e',
- 		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
- 	}
- };
+  const options = {
+  	method: 'GET',
+  	headers: {
+  		'X-RapidAPI-Key': '169994c251mshf415aae10d6eecap13af92jsn929e0f2fcf8e',
+  		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+  	}
+  };
 
 
 
 const buscar = async (p1) => {
     options.method = 'GET';
-    const peticion = await fetch(`https://youtube138.p.rapidapi.com/channel/search/?id=UC8fkwsjcI_MhralEX1g4OBw&q=${p1}&hl=en&gl=US`, options);
+     const peticion = await fetch(`https://youtube138.p.rapidapi.com/channel/search/?id=UC8fkwsjcI_MhralEX1g4OBw&q=${p1}&hl=en&gl=US`, options);
     const json = await peticion.json();
 
     let h = 0, cont = 0;
@@ -102,6 +102,37 @@ const buscar = async (p1) => {
         });
     })
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const videoContainer = document.getElementById("listacontenedor");
+    const randomVideo = document.getElementById("videos");
+
+    function getRandomVideo() {
+        const url = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '169994c251mshf415aae10d6eecap13af92jsn929e0f2fcf8e',
+                'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+            }
+        };
+
+        fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                const videos = data.videos;
+                const randomIndex = Math.floor(Math.random() * videos.length);
+                const videoId = videos[randomIndex].id;
+                const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                randomVideo.src = embedUrl;
+            })
+            .catch(error => console.error(error));
+    }
+
+    getRandomVideo();
+
+    randomVideo.addEventListener("click", getRandomVideo);
+});
 
 
 

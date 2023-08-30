@@ -48,14 +48,15 @@ let storageElement = localStorage.getItem('ID')
 console.log(storageElement);
 changingVideo(storageElement)
 
-  const url = `https://youtube138.p.rapidapi.com/video/details/?id=${storageElement}&hl=en&gl=US`;
-  const options = {
-  	method: 'GET',
-  	headers: {
-  		'X-RapidAPI-Key': '8d4ea1262emsh0a75b7b794875fep194623jsne505c027c4e1',
-  		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-  	}
-  };
+   const url = `https://youtube138.p.rapidapi.com/video/details/?id=${storageElement}&hl=en&gl=US`;
+   const options = {
+   	method: 'GET',
+   	headers: {
+   		'X-RapidAPI-Key': '8d4ea1262emsh0a75b7b794875fep194623jsne505c027c4e1',
+   		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+   	}
+   };
+
 
 let info = async() =>{
 let peticion = await fetch (url,options)
@@ -127,14 +128,14 @@ else{
 }
 info(url,options);
 
-  const urln = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
-  const optionse = {
-  	method: 'GET',
-  	headers: {
-  		'X-RapidAPI-Key': '8d4ea1262emsh0a75b7b794875fep194623jsne505c027c4e1',
-  		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-  	}
-  };
+   const urln = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
+   const optionse = {
+   	method: 'GET',
+   	headers: {
+   		'X-RapidAPI-Key': '8d4ea1262emsh0a75b7b794875fep194623jsne505c027c4e1',
+   		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+   	}
+   };
 
 
 
