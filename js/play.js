@@ -48,18 +48,15 @@ let storageElement = localStorage.getItem('ID')
 console.log(storageElement);
 changingVideo(storageElement)
 
-
   const url = `https://youtube138.p.rapidapi.com/video/details/?id=${storageElement}&hl=en&gl=US`;
   const options = {
   	method: 'GET',
   	headers: {
-  		'X-RapidAPI-Key': 'dadc31c17fmsh05d55cc1726e60bp1680b4jsn052873b35ae9',
+  		'X-RapidAPI-Key': '8d4ea1262emsh0a75b7b794875fep194623jsne505c027c4e1',
   		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
   	}
   };
 
-
-// let infoVid = 'videoInfo';
 let info = async() =>{
 let peticion = await fetch (url,options)
 let response = await peticion.json()
@@ -130,12 +127,11 @@ else{
 }
 info(url,options);
 
-
   const urln = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
   const optionse = {
   	method: 'GET',
   	headers: {
-  		'X-RapidAPI-Key': 'dadc31c17fmsh05d55cc1726e60bp1680b4jsn052873b35ae9',
+  		'X-RapidAPI-Key': '8d4ea1262emsh0a75b7b794875fep194623jsne505c027c4e1',
   		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
   	}
   };
@@ -147,11 +143,10 @@ info(url,options);
             let repon = await petic.json()
             console.log(repon);
 
-            // INSERTAR TARJETAS DE VIDEO AL PLAY-VIDEO
             let rightSide = document.querySelector('.derecha')
             rightSide.insertAdjacentHTML('beforeend', `
                 ${repon.contents.map((value)=>`
-                <div class="videolista" video-id='${value.video.videoId}'>
+                <div class="videolista" videoid='${value.video.videoId}'>
                         <a href="./playvideo.html" class="videopeque"><img src="${value.video.thumbnails[3].url}"></a>
                         <div class="contextvideo">
                             <a href="./playvideo.html">${value.video.title}</a>
@@ -161,14 +156,13 @@ info(url,options);
                 </div>
                 `).join("")}
             `)
-     // FUNCION DE QUE ESCUCHARÁ TODAS LAS TARJETAS DE VIDEOS CREADOS AL HACERLE CLICK
+
             const videoElements = document.querySelectorAll('.videolista');
-            // Agrega un manejador de eventos a cada tarjeta video
+     
             videoElements.forEach(video => {
                 video.addEventListener('click', () => {
                     let videoId = video.getAttribute('videoid');
-                     //GUARDO EL VALOR DEL ATRIBUTO ANTERIORMENTE CREADO
-                     // PARA SABER EL ID DEL VIDEO AL QUE SE LE DIÓ CLICK
+                   
                     localStorage.setItem('ID', videoId)
                     });
             });
