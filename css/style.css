@@ -20,20 +20,18 @@ a{
 img{
     cursor: pointer;
 }
-.primero{
+
+nav {
     display: flex;
     align-items: center;
-    position: relative;
-}
-nav{
     padding: 10px 2%;
     justify-content: space-between;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background: #fff;
-    position: sticky;
+    position: fixed; 
     top: 0;
+    width: 100%;
     z-index: 10;
-
 }
 .nose3 img{
     width: 25px;
@@ -247,6 +245,7 @@ nav{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 95px;
 
 }
 .play-video{
